@@ -13,7 +13,7 @@
     <script>
         async function validar() {
             const cpf = document.getElementById('cpfInput').value.replace(/\D/g, '');
-            const response = await fetch(`/api/validar-cpf?cpf=${cpf}`);
+            const response = await fetch(`/api/validarf?cpf=${cpf}`);
             const data = await response.json();
             document.getElementById('resultado').innerText = data.valido ? 'CPF VÁLIDO!' : 'CPF INVÁLIDO!';
         }
