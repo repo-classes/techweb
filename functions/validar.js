@@ -33,3 +33,20 @@ export async function onRequestGet({ request }) {
         headers: { 'Content-Type': 'application/json' }
     });
 }
+
+export async function onRequest({ request }) {
+    const url = new URL(request.url);
+    const cpf = url.searchParams.get('cpf');
+    
+    if (!cpf) {
+        return new Response(JSON.stringify({ erro: 'CPF not provided' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
+    const valido = validar(cpf);
+    return new Response(JSON.stringify({ valido }), {
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
