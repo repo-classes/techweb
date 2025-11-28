@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import JSONResponse
-from documentos import validar_cpf, validar_cnpj
+from validator import validar_cpf, validar_cnpj
 
 app = FastAPI(
     title="Validador de CPF e CNPJ",
